@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Home"))
+{
+    <div><label>Логин</label> @Html.TextBox("login")</div>
+    <div><label>Пароль</label>@Html.TextBox("pass")</div>
+    <div>
+        <input type="submit" value="Войти">
+    </div>
+}
+@if (ViewBag.Result != null)
+{
+    <div>
+        @ViewBag.Result
+    </div>
+}
