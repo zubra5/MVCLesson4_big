@@ -2,6 +2,7 @@
 using System.IO;
 using System.Security.AccessControl;
 using System.Web.Mvc;
+using MVCLesson4_big.Models;
 
 namespace MVCLesson4_big.Controllers
 {
@@ -31,13 +32,13 @@ namespace MVCLesson4_big.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string login, string pass)
+        public ActionResult Login(LoginModel loginModel)
         {
             try
             {
                 string filepath = String.Format("{0}\\{1}", Server.MapPath("\\Content"), "myfile.txt");
 
-                System.IO.File.AppendAllLines(filepath, new[] {login, pass});
+                System.IO.File.AppendAllLines(filepath, new[] { loginModel.Login, loginModel.Pass });
 
                 ViewBag.Result ="OK";
             }
@@ -56,13 +57,13 @@ namespace MVCLesson4_big.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(string login, string pass, string secondpass, string email)
+        public ActionResult Register(RegistrationModel registration)
         {
             try
             {
                 string filepath = String.Format("{0}\\{1}", Server.MapPath("\\Content"), "myfile.txt");
 
-                System.IO.File.AppendAllLines(filepath, new[] { login, pass, secondpass, email });
+                System.IO.File.AppendAllLines(filepath, new[] { registration.Login, registration.Pass, registration.PassSec, registration.Email });
 
                 ViewBag.Result = "OK";
             }

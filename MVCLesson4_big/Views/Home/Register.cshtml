@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MVCLesson4_big.Models.RegistrationModel
+@{
     ViewBag.Title = "Register";
 }
 
@@ -6,10 +7,10 @@
 
 @using (Html.BeginForm("Register", "Home"))
 {
-    <div><label>Логин</label> @Html.TextBox("login")</div>
-    <div><label>Пароль</label>@Html.TextBox("pass")</div>
-    <div><label>Подтверждение пароля</label>@Html.TextBox("secondpass")</div>
-    <div><label>Email</label>@Html.TextBox("email")</div>
+    <div><label>Логин</label> @Html.TextBoxFor(m=>m.Login)</div>
+    <div><label>Пароль</label>@Html.TextBoxFor(m=>m.Pass)</div>
+    <div><label>Подтверждение пароля</label>@Html.TextBoxFor(m=>m.PassSec)</div>
+    <div><label>Email</label>@Html.TextBoxFor(m=>m.Email)</div>
     <div>
         <input type="submit" value="Войти">
     </div>

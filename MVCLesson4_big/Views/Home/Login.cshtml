@@ -1,4 +1,4 @@
-﻿
+﻿@model MVCLesson4_big.Models.LoginModel
 @{
     ViewBag.Title = "Login";
 }
@@ -7,8 +7,8 @@
 
 @using (Html.BeginForm("Login", "Home"))
 {
-    <div><label>Логин</label> @Html.TextBox("login")</div>
-    <div><label>Пароль</label>@Html.TextBox("pass")</div>
+    <div><label>Логин</label> @Html.TextBoxFor(m=>m.Login)</div>
+    <div><label>Пароль</label>@Html.TextBoxFor(m=>m.Pass)</div>
     <div>
         <input type="submit" value="Войти">
     </div>
